@@ -106,7 +106,7 @@ class CustomerController extends Controller
             'membership' => ['required', Rule::in(['Bronze', 'Platinum', 'Gold']),],
             'alamat' => 'required',
             'tgl_lahir' => 'required|date_format:Y-m-d',
-            'no_telp' => 'required|regex:/(08)[0-9]/|min:11|max:13'
+            'no_telp' => 'required|numeric|digits_between:11,13|starts_with:08'
         ]);
 
         if($validate->fails())
